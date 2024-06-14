@@ -5,8 +5,7 @@ require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
-// ユーザーのusernameとpassword一覧を取得するSQL文を準備
-$sqlUsers = $pdo->prepare("SELECT username, password FROM users");
+$sqlMerc = $pdo->prepare("SELECT * FROM foods");
 
 // SQL文の実行
 $sqlUsers->execute();

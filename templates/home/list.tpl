@@ -13,8 +13,8 @@
 
 {foreach $resultMarc as $loop}
     <tr>
+    <td> {$loop.productId}</td>
     <td> {$loop.productName}</td>
-    <td> {$loop.stock}</td>
     </tr>
 {/foreach}
 

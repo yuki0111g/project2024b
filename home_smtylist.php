@@ -6,7 +6,7 @@ require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
-$sqlMerc = $pdo->prepare("SELECT product_id, stock, productName FROM merchandise LEFT OUTER JOIN food ON merchandise.product_id = food.productId");
+$sqlMerc = $pdo->prepare("SELECT * FROM foods");
 
 //SQL文の実行
 $sqlMerc->execute();

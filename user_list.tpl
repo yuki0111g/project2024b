@@ -12,6 +12,8 @@
 <body>
     <h1>User List</h1>
     <p><a href="{$account_management_link}">アカウント管理ページへ</a></p>
+    <a href="login.php">ログインページへ戻る</a>
+    
     <table border="1">
         <tr>
             <th>Username</th>

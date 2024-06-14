@@ -1,18 +1,14 @@
 <?php
-//Point: 学籍番号:xxxxxx   氏名:xxxxxxxxx
-
 require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
-// ユーザーのusernameとpassword一覧を取得するSQL文を準備
-$sqlUsers = $pdo->prepare("SELECT username, password FROM users");
+$sqlMerc = $pdo->prepare("SELECT product_id, stock, productName FROM merchandise LEFT OUTER JOIN food ON merchandise.product_id = food.productId");
 
-// SQL文の実行
-$sqlUsers->execute();
-
-// 結果の取得
-$users = $sqlUsers->fetchAll(PDO::FETCH_ASSOC);
+//SQL文の実行
+$sqlMerc->execute();
+//結果の取得
+$resultMarc = $sqlMerc->fetchAll();
 
 // Smartyのテンプレート設定
 require_once("pnwsmarty.php");

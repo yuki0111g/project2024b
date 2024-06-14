@@ -1,13 +1,15 @@
 <?php
-
-//Point: 学籍番号:xxxxxx   氏名:xxxxxxxxx
+$search = $_POST["input1"];
 
 require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
-
-$sqlMerc = $pdo->prepare("SELECT product_id, stock, productName FROM merchandise LEFT OUTER JOIN food ON merchandise.product_id = food.productId");
-
+if($search == NULL){
+    $sqlMerc = $pdo->prepare("SELECT product_id, stock, productName FROM merchandise LEFT OUTER JOIN food ON merchandise.product_id = food.productId");
+}
+else{
+    $sqlMerc = $pdo->prepare("SELECT product_id, stock, productName FROM merchandise LEFT OUTER JOIN food ON merchandise.product_id = food.productId WHERE productName LIKE '{$search}'");
+}
 //SQL文の実行
 $sqlMerc->execute();
 //結果の取得

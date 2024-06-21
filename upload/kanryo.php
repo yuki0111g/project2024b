@@ -5,7 +5,8 @@
 
     echo "ご注文ありがとうございました。" . "<br>";
     echo "またのご利用をお待ちしております。" . "<br>";
-
+    echo "<br>";
+    echo "<br>";
     echo '<a href="/project2024b/home_smtylist.php">ホーム画面に戻る</a>' . "<br>";
 
 ?>

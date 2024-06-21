@@ -1,6 +1,4 @@
 <?php
-//Point: 学籍番号:xxxxxx   氏名:xxxxxxxxx
-
 session_start(); // セッションの開始
 
 require("libDB.php");

@@ -1,24 +1,52 @@
 <?php
-session_start(); // セッションの開始
+session_start();
+$search = "";
+$oAmount = "";
+$ioAmount = 1;
+$wtb = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $search = $_POST["input1"];
+    $ioAmount = $_POST["orderAmount"];
+    $wtb = $_POST["wtb"];
+}
+if($ioAmount <= 0){
+    $ioAmount = 1;
+}
+$oAmount = strval($ioAmount);
+
+if(!isset($_SESSION["cart"])){
+    $_SESSION["cart"] = array();
+}
 
 require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
-$sqlMerc = $pdo->prepare("SELECT * FROM foods");
 
-// SQL文の実行
-$sqlUsers->execute();
-
-// 結果の取得
-$users = $sqlUsers->fetchAll(PDO::FETCH_ASSOC);
-
-// Smartyのテンプレート設定
+if($search != ""){
+    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE '{$search}%'");
+}
+elseif($wtb!= ""){
+    $sql = $pdo->prepare("SELECT productName, value FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productID = p.productId WHERE oh.orderId = {$wtb}");
+}
+else{
+    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId");
+}
+//SQL文の実行
+$sql->execute();
+//結果の取得
+$result = $sql->fetchAll();
 require_once("pnwsmarty.php");
-$pnwSmarty = new pnwsmarty();
-$smarty = $pnwSmarty->getTpl();
-$smarty->assign("users", $users); // 取得したユーザー一覧をSmartyに割り当てる
-$smarty->assign("account_management_link", "account_management.php"); // アカウント管理ページへのリンクを割り当てる
-$smarty->display("user_list.tpl"); // テンプレートの表示（user_list.tplは実際のテンプレートファイル名に置き換えてください）
+$pnw = new pnwsmarty();
+$smarty = $pnw->getTpl();
+if(($wtb != "")&&($search == "")){
+    $dump = array($result[0][0],$result[0][1],$oAmount);
+    array_push($_SESSION["cart"],$dump);
+    $smarty->assign("product",$_SESSION["cart"]);
+    $smarty->display("cart/cart.tpl");
+}
+else{
+    $smarty->assign("resultMarc", $result);
+    $smarty->display("home/list.tpl");
+}
 ?>
-

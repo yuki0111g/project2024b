@@ -71,5 +71,5 @@ $smarty->assign("user", $user); // 取得したユーザー情報をSmartyに割
 $smarty->assign("username", $username); // ユーザー名をSmartyに割り当てる
 $smarty->assign("password_placeholder", $password_placeholder); // パスワードのプレースホルダーをSmartyに割り当てる
 $smarty->assign("home_link", "home_smtylist.php");
-$smarty->display("account_management.tpl"); // テンプレートの表示（account_management.tplは実際のテンプレートファイル名に置き換えてください）
+$smarty->display("account_management/account_management.tpl"); // テンプレートの表示（account_management.tplは実際のテンプレートファイル名に置き換えてください）
 ?>

@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $wtb = $_POST["wtb"];
     }
     if(isset($_POST["goCart"])){
-        $goCart = $_POST["goCart"];
+        $goCart = 1;
     }
     if (isset($_POST["delete_item"]) && isset($_POST["delete_index"])) {
         $delete_index = $_POST["delete_index"];
@@ -82,17 +82,17 @@ if(($wtb != "")&&($search == "")){
     $dump = array($result[0][0],$result[0][1],$oAmount);
     array_push($_SESSION["cart"],$dump);
     $smarty->assign("product",$_SESSION["cart"]);
-    $smarty->display("cart/cart.tpl");
+    $smarty->display("home_smtylist/cart.tpl");
 }
 elseif($goCart){
     $smarty->assign("product",$_SESSION["cart"]);
     $goCart = 0;
-    $smarty->display("cart/cart.tpl");
+    $smarty->display("home_smtylist/cart.tpl");
 }
 //検索に送るデータ
 else {
     $smarty->assign("_account", $islogin);
     $smarty->assign("resultMarc", $result); 
-    $smarty->display("home/list.tpl");
+    $smarty->display("home_smtylist/list.tpl");
 }
 ?>

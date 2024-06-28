@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 08:11:16
-  from 'C:\xampp\htdocs\project2024b\templates\home\list.tpl' */
+/* Smarty version 3.1.39, created on 2024-06-28 08:20:41
+  from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e5404646430_18475272',
+  'unifunc' => 'content_667e5639c77808_21037005',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd5854aac951fb83306b06dfed7368bcf006073c4' => 
+    'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home\\list.tpl',
+      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
       1 => 1719555074,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e5639c77808_21037005 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>

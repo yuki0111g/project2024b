@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./templates/home_smtylist/list.css">
     <title>商品一覧</title>
     <style>
         body {
@@ -113,6 +114,11 @@
             margin-top: 20px;
             margin-left: 10px;
         }
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -140,7 +146,8 @@
             <tbody>
                 {foreach $resultMarc as $loop}
                 <tr>
-                    <td>{$loop.productName}</td>
+               
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
                     <td>￥{$loop.value}</td>
                     <td>{$loop.stock}</td>
                     <td>

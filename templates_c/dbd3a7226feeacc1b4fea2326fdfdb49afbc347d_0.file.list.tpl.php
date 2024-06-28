@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 08:20:41
+/* Smarty version 3.1.39, created on 2024-06-28 09:39:28
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e5639c77808_21037005',
+  'unifunc' => 'content_667e68b033b5f4_47727149',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1719555074,
+      1 => 1719560361,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e5639c77808_21037005 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e68b033b5f4_47727149 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./templates/home_smtylist/list.css">
     <title>商品一覧</title>
     <style>
         body {
@@ -136,6 +137,11 @@ function content_667e5639c77808_21037005 (Smarty_Internal_Template $_smarty_tpl)
             margin-top: 20px;
             margin-left: 10px;
         }
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -168,8 +174,10 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['loop']->value) {
 $_smarty_tpl->tpl_vars['loop']->do_else = false;
 ?>
                 <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
-</td>
+               
+                    <td><a href=""><img src=<?php echo ("./productImages/").($_smarty_tpl->tpl_vars['loop']->value['image']);?>
+ /><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+</a></td>
                     <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
 </td>
                     <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>

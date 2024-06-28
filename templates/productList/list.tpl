@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="./templates/productList/list.css">
     <title>商品一覧</title>
 </head>
 
@@ -9,7 +9,7 @@
 <h3>2個並び</h3>
 <ul>
 {foreach $resultMarc as $loop}
-<li><a href=""><img src={"../productImages/"|cat:$loop.image} /><p>{$loop.productName}</p><span>{$loop.value|cat:"円"}</span></a></li>
+<li><a href=""><img src={"./productImages/"|cat:$loop.image} /><p>{$loop.productName}</p><span>{$loop.value|cat:"円"}</span></a></li>
 {/foreach}
 </ul>
 </div>

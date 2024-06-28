@@ -57,7 +57,7 @@ $pdo = $db->getPDO();
 
 if ($search != "")//検索
 {
-    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE :search");
+    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock ,image FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE :search");
     $searchParam = $search . '%';
     $sql->bindParam(':search', $searchParam);
 } elseif ($wtb != "")//カート登録

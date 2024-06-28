@@ -103,36 +103,13 @@
     </style>
 </head>
 <body>
-<form "action="home_smtylist.php" method="POST">
-<input type="submit" name="goCart" value = {1}>
-
-<h1>一覧</h1><table border="1">
-
-
-<tr>
-    <td>カートに追加</td>
-    <td>name</td>
-    <td>price</td>
-    <td>stock</td>
-</tr>
-
-{foreach $resultMarc as $loop}
-    <tr>
-    <td> <input type="number" size=20 maxlength="30" name="orderAmount">
-    <input type="submit" name="wtb" value = {$loop.orderId}></td>
-    <td>{$loop.productName}</td>
-    <td> {$loop.value}</td>
-    <td> {$loop.stock}</td>
-    </tr>
-{/foreach}
-商品検索：<input type="text" size=20 maxlength="30" name="input1" value ""><br>
-</table>
 </form>
     <div class="container">
         <h1>商品一覧</h1>
         
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
+                <input type="submit" name="goCart" value = {1}>
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
@@ -167,7 +144,7 @@
                 {/foreach}
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">アカウント管理</a>
+        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>

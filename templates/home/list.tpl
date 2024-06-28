@@ -103,11 +103,13 @@
     </style>
 </head>
 <body>
+</form>
     <div class="container">
         <h1>商品一覧</h1>
         
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
+                <input type="submit" name="goCart" value = {1}>
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
@@ -142,7 +144,7 @@
                 {/foreach}
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">アカウント管理</a>
+        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>

@@ -55,6 +55,7 @@
     </style>
 </head>
 <body>
+<form method="post" action="home_smtylist.php">
     <div class="container">
         <h1>カート</h1>
         <table>
@@ -63,21 +64,24 @@
                 <th>価格</th>
                 <th>数量</th>
                 <th>小計</th>
+                <th><input type="submit" class="delete-btn" name="isClear" value="全削除"></th>
             </tr>
             {assign var="total" value=0}
+            {$key = 0}
             {foreach $product as $p}
             {assign var="subtotal" value=$p[1]*$p[2]}
+
             <tr>
                 <td>{$p[0]}</td>
                 <td>&yen;{$p[1]}</td>
                 <td>{$p[2]}</td>
                 <td>&yen;{$subtotal}</td>
                 <td>
-                    <form method="post" action="home_smtylist.php">
                         <input type="hidden" name="delete_index" value="{$key}">
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
                     </form>
                 </td>
+                {$key=$key + 1}
 
             </tr>
             {assign var="total" value=$total+$subtotal}

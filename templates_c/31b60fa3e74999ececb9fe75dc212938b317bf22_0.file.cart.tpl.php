@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-27 09:21:41
+/* Smarty version 3.1.39, created on 2024-06-28 06:11:01
   from 'C:\xampp\htdocs\project2024b\templates\cart\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667d1305b0a202_19887121',
+  'unifunc' => 'content_667e37d552a5c4_15293761',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '31b60fa3e74999ececb9fe75dc212938b317bf22' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\cart\\cart.tpl',
-      1 => 1719472896,
+      1 => 1719547857,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667d1305b0a202_19887121 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e37d552a5c4_15293761 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -86,13 +86,12 @@ function content_667d1305b0a202_19887121 (Smarty_Internal_Template $_smarty_tpl)
                 <th>価格</th>
                 <th>数量</th>
                 <th>小計</th>
-                <th>操作</th>
             </tr>
             <?php $_smarty_tpl->_assignInScope('total', 0);?>
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['product']->value, 'p', false, 'key');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['product']->value, 'p');
 $_smarty_tpl->tpl_vars['p']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['key']->value => $_smarty_tpl->tpl_vars['p']->value) {
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 $_smarty_tpl->tpl_vars['p']->do_else = false;
 ?>
             <?php $_smarty_tpl->_assignInScope('subtotal', $_smarty_tpl->tpl_vars['p']->value[1]*$_smarty_tpl->tpl_vars['p']->value[2]);?>
@@ -112,6 +111,7 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
                     </form>
                 </td>
+
             </tr>
             <?php $_smarty_tpl->_assignInScope('total', $_smarty_tpl->tpl_vars['total']->value+$_smarty_tpl->tpl_vars['subtotal']->value);?>
             <?php
@@ -128,4 +128,3 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </html>
 <?php }
 }
-?>

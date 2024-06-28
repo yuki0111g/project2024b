@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-27 09:34:30
+/* Smarty version 3.1.39, created on 2024-06-28 06:10:19
   from 'C:\xampp\htdocs\project2024b\templates\home\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667d1606140923_12292874',
+  'unifunc' => 'content_667e37abb7bf75_14626558',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd5854aac951fb83306b06dfed7368bcf006073c4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home\\list.tpl',
-      1 => 1719473664,
+      1 => 1719547805,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667d1606140923_12292874 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e37abb7bf75_14626558 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -126,58 +126,43 @@ function content_667d1606140923_12292874 (Smarty_Internal_Template $_smarty_tpl)
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>商品一覧</h1>
-        
-        <div class="search-container">
-            <form action="home_smtylist.php" method="POST">
-                <input type="text" name="input1" placeholder="商品を検索">
-                <input type="submit" value="検索">
-            </form>
-        </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>商品名</th>
-                    <th>価格</th>
-                    <th>在庫</th>
-                    <th>数量</th>
-                    <th>カートに追加</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
+<form "action="home_smtylist.php" method="POST">
+<input type="submit" name="goCart" value = <?php echo 1;?>
+>
+
+<h1>一覧</h1><table border="1">
+
+
+<tr>
+    <td>カートに追加</td>
+    <td>name</td>
+    <td>price</td>
+    <td>stock</td>
+</tr>
+
+<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['resultMarc']->value, 'loop');
 $_smarty_tpl->tpl_vars['loop']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['loop']->value) {
 $_smarty_tpl->tpl_vars['loop']->do_else = false;
 ?>
-                <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+    <tr>
+    <td> <input type="number" size=20 maxlength="30" name="orderAmount">
+    <input type="submit" name="wtb" value = <?php echo $_smarty_tpl->tpl_vars['loop']->value['orderId'];?>
+></td>
+    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
 </td>
-                    <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
+    <td> <?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
+    <td> <?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
 </td>
-                    <td>
-                        <form action="home_smtylist.php" method="POST" style="display: inline;">
-                            <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['orderId'];?>
-">
-                    </td>
-                    <td>
-                        <button type="submit" class="add-to-cart-button">追加</button>
-                        </form>
-                    </td>
-                </tr>
-                <?php
+    </tr>
+<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            </tbody>
-        </table>
-        <a href="account_management.php" class="account-link">アカウント管理</a>
-    </div>
+商品検索：<input type="text" size=20 maxlength="30" name="input1" value ""><br>
+</table>
+</form>
 </body>
 </html>
 <?php }

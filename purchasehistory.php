@@ -2,10 +2,10 @@
 
 //購入履歴
 
-require("../libDB.php");
+require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
-
+session_start();
 $userid = "'tanuki'";//仮のuserid
 
 //購入履歴と商品情報を内部結合
@@ -19,10 +19,10 @@ $resultMarc = $sqlMerc->fetchAll();
 
 
 //Smartyのテンプレート設定
-require_once("../pnwsmarty.php");
+require_once("pnwsmarty.php");
 $pnwMerc = new pnwsmarty();
 $smartyMerc = $pnwMerc->getTpl();
 $smartyMerc->assign("resultMarc", $resultMarc);
-$smartyMerc->display("list.tpl");
+$smartyMerc->display("purchaseHistory/list.tpl");
 
 ?>

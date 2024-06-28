@@ -5,7 +5,7 @@
 </head>      
 <body>
 <form "action="home_smtylist.php" method="POST">
-
+<input type="submit" name="goCart" value = {1}>
 
 <h1>一覧</h1><table border="1">
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 09:39:28
+/* Smarty version 3.1.39, created on 2024-06-28 09:45:20
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e68b033b5f4_47727149',
+  'unifunc' => 'content_667e6a10aaea48_32908738',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1719560361,
+      1 => 1719560717,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e68b033b5f4_47727149 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e6a10aaea48_32908738 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -151,6 +151,7 @@ function content_667e68b033b5f4_47727149 (Smarty_Internal_Template $_smarty_tpl)
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="goCart" value = "カートへ進む">
+                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む" href ="www.google.com">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>

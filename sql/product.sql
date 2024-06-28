@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2024-06-21 06:45:20
+-- 生成日時: 2024-06-21 10:25:01
 -- サーバのバージョン： 10.4.32-MariaDB
 -- PHP のバージョン: 8.2.12
 
@@ -35,19 +35,20 @@ CREATE TABLE `product` (
   `expTime` date NOT NULL,
   `brand` varchar(255) NOT NULL,
   `amount` varchar(255) NOT NULL,
-  `stock` int(11) NOT NULL
+  `stock` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- テーブルのデータのダンプ `product`
 --
 
-INSERT INTO `product` (`productId`, `productName`, `value`, `isCool`, `expTime`, `brand`, `amount`, `stock`) VALUES
-(1, 'りんご', 100, 0, '2024-06-27', 'スマイルshop', '100g', 0),
-(2, '牛肉', 2980, 1, '2024-06-13', 'スマイルshopUnofficial', '1000kg', 0),
-(3, 'さんま', 10000, 1, '2024-06-27', 'BottomValue', '', 0),
-(4, 'いちご', 100, 0, '2024-06-30', 'low損', '1t', 0),
-(5, '柔あげポテト', 198, 0, '2033-06-28', 'あいうえお', '72g', 0);
+INSERT INTO `product` (`productId`, `productName`, `value`, `isCool`, `expTime`, `brand`, `amount`, `stock`, `image`) VALUES
+(1, 'りんご', 100, 0, '2024-06-27', 'スマイルshop', '100g', 0, 'apple.jpg'),
+(2, '牛肉', 2980, 1, '2024-06-13', 'スマイルshopUnofficial', '1000kg', 0, 'beef.jpg'),
+(3, 'さんま', 10000, 1, '2024-06-27', 'BottomValue', '', 0, 'sanma.webp'),
+(4, 'いちご', 100, 0, '2024-06-30', 'low損', '1t', 0, 'strawberry.jpg'),
+(5, '柔あげポテト', 198, 0, '2033-06-28', 'あいうえお', '72g', 0, 'potechi.png');
 
 --
 -- ダンプしたテーブルのインデックス

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 08:24:55
+/* Smarty version 3.1.39, created on 2024-06-30 09:58:10
   from 'C:\xampp\htdocs\project2024b\templates\account_management\account_management.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e5737283e82_79632013',
+  'unifunc' => 'content_668110127b7b00_27619445',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a73e0ec4eb7239aeb798530f0691d6e772e74be6' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\account_management\\account_management.tpl',
-      1 => 1719555890,
+      1 => 1719734286,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e5737283e82_79632013 (Smarty_Internal_Template $_smarty_tpl) {
+function content_668110127b7b00_27619445 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -167,6 +167,11 @@ function content_667e5737283e82_79632013 (Smarty_Internal_Template $_smarty_tpl)
                 <label for="number">電話番号</label>
                 <input type="text" id="number" name="number" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['number'];?>
 " required>
+            </div>
+            <div class="form-group">
+                <img src="./icon/credit.svg" alt="クレジットカード">
+                <label for="credit">クレジットカード</label>
+                <input type="password" id="new_credit" name="new_credit" maxlength="16" pattern="\d*" placeholder="クレジットカード番号（16桁）" required>
             </div>
             <div class="form-group">
                 <input type="submit" value="更新">

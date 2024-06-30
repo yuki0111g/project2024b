@@ -141,6 +141,11 @@
                 <input type="text" id="number" name="number" value="{$user.number}" required>
             </div>
             <div class="form-group">
+                <img src="./icon/credit.svg" alt="クレジットカード">
+                <label for="credit">クレジットカード</label>
+                <input type="password" id="new_credit" name="new_credit" maxlength="16" pattern="\d*" placeholder="クレジットカード番号（16桁）" required>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="更新">
             </div>
         </form>

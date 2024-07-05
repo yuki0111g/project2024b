@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-05 15:34:57
+/* Smarty version 3.1.39, created on 2024-07-05 17:00:53
   from 'C:\xampp\htdocs\2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6687f6816da7b7_20244209',
+  'unifunc' => 'content_66880aa54d71a0_94840460',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e19a8ab820f11737107f65968a3721c86e7d37d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1720186440,
+      1 => 1720191593,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6687f6816da7b7_20244209 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66880aa54d71a0_94840460 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -161,8 +161,8 @@ function content_6687f6816da7b7_20244209 (Smarty_Internal_Template $_smarty_tpl)
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
-                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む">
                 <input type="submit" name="goPurchaseHistory" value = "購入履歴">
+                <input type="submit" name="goWishlist" value="ほしいものリストへ進む">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
@@ -181,8 +181,7 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
 </a></td>
                     <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
-</td>
+                    <br></br>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">

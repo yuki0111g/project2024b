@@ -146,9 +146,10 @@
         <div class="product-grid">
             {foreach $resultMarc as $loop}
             <div class="product-item"
-                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} /><br></br>{$loop.productName}</a></td>
+                    <br></br>
                     <td>￥{$loop.value}</td>
-                    <td>{$loop.stock}</td>
+                    <br></br>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">

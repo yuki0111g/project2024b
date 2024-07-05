@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-05 09:32:11
+/* Smarty version 3.1.39, created on 2024-07-05 10:49:58
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6687a17b5d93c3_30011210',
+  'unifunc' => 'content_6687b3b6a31550_09890670',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1720164699,
+      1 => 1720169395,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6687a17b5d93c3_30011210 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6687b3b6a31550_09890670 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -175,12 +175,12 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
 ?>
             <div class="product-item"
                     <td><a href=""><img src=<?php echo ("./productImages/").($_smarty_tpl->tpl_vars['loop']->value['image']);?>
- /><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+ /><br></br><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
 </a></td>
+                    <br></br>
                     <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
-</td>
+                    <br></br>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">

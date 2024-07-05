@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-30 10:14:28
-  from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
+/* Smarty version 3.1.39, created on 2024-07-05 06:50:43
+  from 'C:\xampp\htdocs\2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_668113e4304ae2_44156867',
+  'unifunc' => 'content_66877ba36ca946_06039831',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
+    '9e19a8ab820f11737107f65968a3721c86e7d37d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1719735264,
+      0 => 'C:\\xampp\\htdocs\\2024b\\templates\\home_smtylist\\list.tpl',
+      1 => 1720152558,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66877ba36ca946_06039831 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -166,7 +166,6 @@ function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl)
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
-                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む" href ="www.google.com">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
@@ -214,7 +213,6 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>

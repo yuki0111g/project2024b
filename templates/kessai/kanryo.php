@@ -43,6 +43,7 @@
   </style>
 </head>
 <body>
+
   <h1>決済完了</h1>
   <div class="message">
     <?php
@@ -51,5 +52,6 @@
     ?>
   </div>
   <a href="/project2024b/home_smtylist.php" class="return-link">ホーム画面に戻る</a>
+
 </body>
 </html>

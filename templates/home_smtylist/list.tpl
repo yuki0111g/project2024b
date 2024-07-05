@@ -52,9 +52,9 @@
         .search-container input[name="goCart"] {
             padding: 10px 30px;
             font-size: 16px;
-            position:absolute;	
-            top:10%;
-            right:11%;
+            position: absolute;
+            top: 10%;
+            right: 11%;
             background-color: #007bff;
             color: white;
             border: none;
@@ -65,9 +65,9 @@
         .search-container input[name="accountInfo"] {
             padding: 10px 30px;
             font-size: 16px;
-            position:absolute;	
-            top:10%;
-            left:11%;
+            position: absolute;
+            top: 10%;
+            left: 11%;
             background-color: #007bff;
             color: white;
             border: none;
@@ -75,94 +75,77 @@
             cursor: pointer;
         }
 
-
         .search-container input[type="submit"]:hover {
             background-color: #0056b3;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
         }
 
-        table, th, td {
+        .product-item {
+            background-color: #fff;
             border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
         }
 
-        th {
-            background-color: #f4f4f4;
-        }
-
-        .back-link {
-            text-decoration: none;
-            color: #007bff;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .add-to-cart-button {
-            background-color: #28a745;
-            color: white;
-            padding: 5px 10px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .add-to-cart-button:hover {
-            background-color: #218838;
-        }
-
-        .account-link {
-            text-decoration: none;
-            color: #007bff;
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 10px;
-        }
-        img{
+        .product-item img {
             width: 100px;
             height: 100px;
             object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            margin: 5px 0;
+        }
+
+        .product-item input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        .product-item button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .product-item button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-</form>
     <div class="container">
-        <h1>商品一覧</h1>   
+        <h1>商品一覧</h1>
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
-                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む" href ="www.google.com">
+                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
         </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>商品名</th>
-                    <th>価格</th>
-                    <th>在庫</th>
-                    <th>数量</th>
-                    <th>カートに追加</th>
-                </tr>
-            </thead>
-            <tbody>
-                {foreach $resultMarc as $loop}
-                <tr>
-               
+        <div class="product-grid">
+            {foreach $resultMarc as $loop}
+            <div class="product-item"
                     <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
                     <td>￥{$loop.value}</td>
                     <td>{$loop.stock}</td>
@@ -173,12 +156,10 @@
                     </td>
                     <td>
                         <button type="submit" class="add-to-cart-button">追加</button>
-                        </form>
-                    </td>
-                </tr>
-                {/foreach}
-            </tbody>
-        </table>
+                </form>
+            </div>
+            {/foreach}
+        </div>
     </div>
 </body>
 </html>

@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["cart"] = array();
     }
     if(isset($_POST["goWishlist"])){
-        header('Location: productList.php');
+        header('Location: wishList.php');
         exit();
     }
 }

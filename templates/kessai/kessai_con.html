@@ -1,21 +1,83 @@
-<html>        
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>決済画面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-top: 20px;
+      text-align: center; /* Center align form elements */
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Ensure padding does not add to width */
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    input[type="submit"] {
+      display: block;
+      width: 200px; /* Adjust button width as needed */
+      margin: 20px auto; /* Center align button */
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
 <body>
-<meta charset="UTF-8">
-<h1>決済画面</h1>
-
-<form action="kessai_con.php" method="GET">
-    支払うコンビニを選択してください<br>
-    <br>
-    コンビニ支払い: <br>
-    
-<select name= "store">
-    <option value = "セボンイレボン">セボンイレボン</option>
-    <option value = "ファミリーモート">ファミリーモート</option>
-    <option value = "ルーソン">ルーソン</option>
-    <option value = "ビックストップ">ビックストップ</option>
-  </select>
-  <hr>
-<input type="submit" value="実行">  
-</form>
+  <div class="container">
+    <h1>決済画面</h1>
+    <form action="kessai_con.php" method="GET">
+      <label for="store">支払うコンビニを選択してください</label>
+      <br>
+      <select name="store" id="store">
+        <option value="セボンイレボン">セボンイレボン</option>
+        <option value="ファミリーモート">ファミリーモート</option>
+        <option value="ルーソン">ルーソン</option>
+        <option value="ビックストップ">ビックストップ</option>
+      </select>
+      <hr>
+      <input type="submit" value="実行">
+    </form>
+  </div>
 </body>
 </html>

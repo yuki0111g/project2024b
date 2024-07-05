@@ -137,8 +137,8 @@
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="accountInfo" value="登録情報">
-                <input type="submit" name="goCart" value = "カートへ進む">
-                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む">
+                <input type="submit" name="goCart" value="カートへ進む">
+                <input type="submit" name="goWishlist" value="ほしいものリストへ進む">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>
@@ -146,9 +146,10 @@
         <div class="product-grid">
             {foreach $resultMarc as $loop}
             <div class="product-item"
-                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} /><br></br>{$loop.productName}</a></td>
+                    <br></br>
                     <td>￥{$loop.value}</td>
-                    <td>{$loop.stock}</td>
+                    <br></br>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">

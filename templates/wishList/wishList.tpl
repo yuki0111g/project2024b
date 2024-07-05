@@ -1,45 +1,215 @@
-<html>  
+<!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>欲しいものリスト</title>
-</head>      
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お気に入りページ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        header .search-bar input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        header .search-bar button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        header .search-bar button:hover {
+            background-color: #1e8449;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .item img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+        .item label {
+            flex: 1;
+            font-size: 18px;
+        }
+        .result {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .result ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .result li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .result button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .result button:hover {
+            background-color: #c0392b;
+        }
+        button[type="button"] {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button[type="button"]:hover {
+            background-color: #27ae60;
+        }
+        @media (max-width: 600px) {
+            .item img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>欲しいものリスト</h1><table border="1">
-<tr>
-    <td>欲しいものリストID</td>
-    <td>ユーザID</td>
-    <td>ユーザーネーム</td>
-    <td>商品ID</td>
-    <td>商品名</td>
-    <td>1つあたりの価格</td>
-    <td>ブランド</td>
-    <td>残りの在庫数</td>
-</tr>
+    <header>
+        <h1>お気に入りページ</h1>
+        
+    </header>
+    <main>
+        <h2>欲しいものリスト</h2>
+        
+        <form id="wishlistForm" action="wishList.php" method="post">
+        {foreach $resultMarc as $loop}
+            <div class="item">
+                <input type="checkbox" id="apple" name="item" value="{$loop.productName}">
+                <label for="apple">
+                    <img src={"./productImages/"|cat:$loop.image} alt={$loop.productName}>
+                    {$loop.productName}
+                </label>
+                    <input type="hidden" name="delete_index" value={$loop.wishlist_id}>
+                    <input type="submit" class="cart-btn" name="add_cart" value="カートに追加(まだできない)">
+                    <input type="submit" class="delete-btn" name="delete_item" value="削除">
+            </div>
+        {/foreach}
+            <button type="button" onclick="showSelectedItems()">購入したものをお気に入りに追加</button>
+        </form>
+       
+    </main>
+    <script>
+        function showSelectedItems() {
+            const form = document.getElementById('wishlistForm');
+            const selectedItems = [];
+            const checkboxes = form.querySelectorAll('input[name="item"]:checked');
 
+            checkboxes.forEach(checkbox => {
+                selectedItems.push(checkbox.value);
+            });
 
-{foreach $resultMarc as $loop}
-    <tr>
-    <td> {$loop.wishlist_id}</td>
-    <td> {$loop.userId}</td>
-    <td> {$loop.username}</td>
-    <td> {$loop.productId}</td>
-    <td> {$loop.productName}</td>
-    <td> {$loop.value}</td>
-    <td> {$loop.brand}</td>
-    <td> {$loop.stock}</td>
-    <td> <form action="wishList.php" method="post">
-    {$wid = $loop.wishlist_id}
-    <input type="hidden" name="delete_index" value="{$wid}">
-    <input type="submit" class="delete-btn" name="delete_item" value="削除"></form>
-    </td>
-    
-    </tr>
-{/foreach}
+            const selectedItemsList = document.getElementById('selectedItems');
+            selectedItemsList.innerHTML = '';
+            
+            if (selectedItems.length > 0) {
+                selectedItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item;
 
-<br>
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = '削除';
+                    deleteButton.onclick = function() {
+                        listItem.remove();
+                    };
 
+                    listItem.appendChild(deleteButton);
+                    selectedItemsList.appendChild(listItem);
+                });
+            } else {
+                selectedItemsList.textContent = 'お気に入り商品がありません。';
+            }
+        }
 
+        function searchFavoriteItems() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.result li');
 
-</table>
+            items.forEach(item => {
+                const label = item.textContent.toLowerCase();
+                if (label.includes(searchInput)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function updateItemsList() {
+            const itemLimit = document.getElementById('itemLimit').value;
+            const items = document.querySelectorAll('.result li');
+            let count = 0;
+
+            items.forEach(item => {
+                if (count < itemLimit) {
+                    item.style.display = 'flex';
+                    count++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('itemLimit').addEventListener('input', updateItemsList);
+    </script>
 </body>
 </html>

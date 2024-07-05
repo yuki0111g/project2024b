@@ -166,6 +166,7 @@ function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl)
             <form action="home_smtylist.php" method="POST">
                 <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
+                <input type="submit" name="goWishlist" value = "ほしいものリストへ進む" href ="www.google.com">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
             </form>

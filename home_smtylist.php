@@ -41,11 +41,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["isClear"])){
         $_SESSION["cart"] = array();
     }
+    if(isset($_POST["goWishlist"])){
+        header('Location: productList.php');
+        exit();
+    }
+}
+
+if($_SESSION["bought"] == true){
+    $_SESSION["cart"] = array();
+    $_SESSION["bought"] = false;
 }
 
 if ($ioAmount <= 0) {
     $ioAmount = 1;
 }
+
 $oAmount = strval($ioAmount);
 
 if (!isset($_SESSION["cart"])) {

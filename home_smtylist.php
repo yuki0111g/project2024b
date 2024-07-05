@@ -6,6 +6,7 @@ $ioAmount = 1;
 $wtb = "";
 $islogin = "ログイン";
 $goCart = 0;
+$accountInfo = 0;
 $remove;
 //postで情報を取得。その後初期値を設定する
 
@@ -25,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST["goCart"])){
         $goCart = 1;
+    }
+    if (isset($_POST["accountInfo"])) {
+        $accountInfo = 1;
     }
     if (isset($_POST["delete_item"]) && isset($_POST["delete_index"])) {
         $delete_index = $_POST["delete_index"];
@@ -98,6 +102,10 @@ elseif($goCart){
     $smarty->assign("product",$_SESSION["cart"]);
     $goCart = 0;
     $smarty->display("home_smtylist/cart.tpl");
+}
+elseif($accountInfo) {
+    header("Location: account_management.php");
+    exit();
 }
 //検索に送るデータ
 else {

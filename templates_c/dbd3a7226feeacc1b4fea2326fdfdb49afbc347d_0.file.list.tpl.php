@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 09:45:20
+/* Smarty version 3.1.39, created on 2024-06-30 10:14:28
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e6a10aaea48_32908738',
+  'unifunc' => 'content_668113e4304ae2_44156867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1719560717,
+      1 => 1719735264,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e6a10aaea48_32908738 (Smarty_Internal_Template $_smarty_tpl) {
+function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -84,6 +84,20 @@ function content_667e6a10aaea48_32908738 (Smarty_Internal_Template $_smarty_tpl)
             border-radius: 4px;
             cursor: pointer;
         }
+
+        .search-container input[name="accountInfo"] {
+            padding: 10px 30px;
+            font-size: 16px;
+            position:absolute;	
+            top:10%;
+            left:11%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
 
         .search-container input[type="submit"]:hover {
             background-color: #0056b3;
@@ -150,6 +164,7 @@ function content_667e6a10aaea48_32908738 (Smarty_Internal_Template $_smarty_tpl)
         <h1>商品一覧</h1>   
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
+                <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
                 <input type="submit" name="goWishlist" value = "ほしいものリストへ進む" href ="www.google.com">
                 <input type="text" name="input1" placeholder="商品を検索">

@@ -108,17 +108,18 @@
                 <th><input type="submit" class="delete-btn" name="isClear" value="全削除"></th>
             </tr>
             {assign var="total" value=0}
-            {$key = 0}
+
+            {$key = -1}
             {foreach $product as $p}
             {assign var="subtotal" value=$p[1]*$p[4]}
-
+            {$p[] = $key}
             <tr>
                 <td>{$p[0]}</td>
                 <td>&yen;{$p[1]}</td>
                 <td>{$p[4]}</td>
                 <td>&yen;{$subtotal}</td>
                 <td>
-                        <input type="hidden" name="delete_index" value="{$key}">
+                        <input type="hidden" name="delete_index" value={$p[5]}>
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
                     </form>
                 </td>

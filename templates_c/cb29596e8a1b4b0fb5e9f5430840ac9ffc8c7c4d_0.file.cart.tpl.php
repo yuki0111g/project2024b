@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-05 09:23:00
+/* Smarty version 3.1.39, created on 2024-07-05 10:11:08
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_66879f54bd33e6_38976093',
+  'unifunc' => 'content_6687aa9ceefac1_38528101',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cb29596e8a1b4b0fb5e9f5430840ac9ffc8c7c4d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\cart.tpl',
-      1 => 1720164178,
+      1 => 1720167064,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66879f54bd33e6_38976093 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6687aa9ceefac1_38528101 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -131,7 +131,8 @@ function content_66879f54bd33e6_38976093 (Smarty_Internal_Template $_smarty_tpl)
                 <th><input type="submit" class="delete-btn" name="isClear" value="全削除"></th>
             </tr>
             <?php $_smarty_tpl->_assignInScope('total', 0);?>
-            <?php $_smarty_tpl->_assignInScope('key', 0);?>
+
+            <?php $_smarty_tpl->_assignInScope('key', -1);?>
             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['product']->value, 'p');
 $_smarty_tpl->tpl_vars['p']->do_else = true;
@@ -139,7 +140,12 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 $_smarty_tpl->tpl_vars['p']->do_else = false;
 ?>
             <?php $_smarty_tpl->_assignInScope('subtotal', $_smarty_tpl->tpl_vars['p']->value[1]*$_smarty_tpl->tpl_vars['p']->value[4]);?>
-
+            <?php $_tmp_array = isset($_smarty_tpl->tpl_vars['p']) ? $_smarty_tpl->tpl_vars['p']->value : array();
+if (!(is_array($_tmp_array) || $_tmp_array instanceof ArrayAccess)) {
+settype($_tmp_array, 'array');
+}
+$_tmp_array[] = $_smarty_tpl->tpl_vars['key']->value;
+$_smarty_tpl->_assignInScope('p', $_tmp_array);?>
             <tr>
                 <td><?php echo $_smarty_tpl->tpl_vars['p']->value[0];?>
 </td>
@@ -150,8 +156,8 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
                 <td>&yen;<?php echo $_smarty_tpl->tpl_vars['subtotal']->value;?>
 </td>
                 <td>
-                        <input type="hidden" name="delete_index" value="<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-">
+                        <input type="hidden" name="delete_index" value=<?php echo $_smarty_tpl->tpl_vars['p']->value[5];?>
+>
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
                     </form>
                 </td>

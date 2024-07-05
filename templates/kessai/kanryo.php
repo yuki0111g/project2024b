@@ -3,6 +3,8 @@
 <h1>決済完了</h1>
 <?php
 
+    session_start();
+    $_SESSION["bought"] = true;
     echo "ご注文ありがとうございました。" . "<br>";
     echo "またのご利用をお待ちしております。" . "<br>";
     echo "<br>";

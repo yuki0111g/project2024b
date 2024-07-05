@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-05 06:43:33
+/* Smarty version 3.1.39, created on 2024-07-05 07:56:32
   from 'C:\xampp\htdocs\2024b\templates\wishList\wishList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_668779f5ad0af3_72502842',
+  'unifunc' => 'content_66878b10370754_97601328',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3db3472018c43d2e07016e46f246ac44f3f4c23f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\2024b\\templates\\wishList\\wishList.tpl',
-      1 => 1720154608,
+      1 => 1720158989,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_668779f5ad0af3_72502842 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66878b10370754_97601328 (Smarty_Internal_Template $_smarty_tpl) {
 ?><html>  
 <head>
     <meta charset="UTF-8">
@@ -38,6 +38,7 @@ function content_668779f5ad0af3_72502842 (Smarty_Internal_Template $_smarty_tpl)
     <td>ブランド</td>
     <td>残りの在庫数</td>
 </tr>
+
 
 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['resultMarc']->value, 'loop');
@@ -62,6 +63,12 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
 </td>
     <td> <?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
 </td>
+    <td> <form action="wishList.php" method="post">
+    <?php $_smarty_tpl->_assignInScope('wid', $_smarty_tpl->tpl_vars['loop']->value['wishlist_id']);?>
+    <input type="hidden" name="delete_index" value="<?php echo $_smarty_tpl->tpl_vars['wid']->value;?>
+">
+    <input type="submit" class="delete-btn" name="delete_item" value="削除"></form>
+    </td>
     
     </tr>
 <?php

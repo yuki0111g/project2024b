@@ -16,6 +16,7 @@
     <td>残りの在庫数</td>
 </tr>
 
+
 {foreach $resultMarc as $loop}
     <tr>
     <td> {$loop.wishlist_id}</td>
@@ -26,6 +27,11 @@
     <td> {$loop.value}</td>
     <td> {$loop.brand}</td>
     <td> {$loop.stock}</td>
+    <td> <form action="wishList.php" method="post">
+    {$wid = $loop.wishlist_id}
+    <input type="hidden" name="delete_index" value="{$wid}">
+    <input type="submit" class="delete-btn" name="delete_item" value="削除"></form>
+    </td>
     
     </tr>
 {/foreach}

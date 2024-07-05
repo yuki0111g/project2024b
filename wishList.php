@@ -6,12 +6,16 @@ require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
-$userid = "'yuki'";//仮のuserid
+session_start();
+$userid = $_SESSION['userid'];
 
-//商品を検索せずに表示
+//自分の欲しいものリストを表示
 $sqlMerc = $pdo->prepare('SELECT * FROM wish_list 
 INNER JOIN product ON wish_list.productId = product.productId
-WHERE userId = '.$userid);
+INNER JOIN users ON wish_list.userId = users.userid
+WHERE wish_list.userId = '.$userid);
+
+//$sqlMerc = $pdo->prepare('SELECT * FROM wish_list WHERE userId = '.$userid);
 
 $sqlMerc->execute();
 $resultMarc = $sqlMerc->fetchAll();

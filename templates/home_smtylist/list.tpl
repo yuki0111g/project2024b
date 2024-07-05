@@ -169,7 +169,7 @@
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="{$loop.orderId}">
+                            <input type="hidden" name="wtb" value="{$loop.productId}">
                     </td>
                     <td>
                         <button type="submit" class="add-to-cart-button">追加</button>

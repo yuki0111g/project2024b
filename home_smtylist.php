@@ -47,10 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-if($_SESSION["bought"] == true){
-    $_SESSION["cart"] = array();
-    $_SESSION["bought"] = false;
-}
 
 if ($ioAmount <= 0) {
     $ioAmount = 1;
@@ -71,16 +67,16 @@ $pdo = $db->getPDO();
 
 if ($search != "")//検索
 {
-    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock ,image FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE :search");
+    $sql = $pdo->prepare("SELECT productId, productName, value ,stock ,image FROM product WHERE productName LIKE :search");
     $searchParam = $search . '%';
     $sql->bindParam(':search', $searchParam);
 } elseif ($wtb != "")//カート登録
 {
-    $sql = $pdo->prepare("SELECT productName, value, image FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productID = p.productId WHERE oh.orderId = :wtb");
+    $sql = $pdo->prepare("SELECT productName, value, image, productId FROM product WHERE productId = :wtb");
     $sql->bindParam(':wtb', $wtb);
 } else//デフォルト
 {
-    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock, image FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId");
+    $sql = $pdo->prepare("SELECT productId, productName, value ,stock, image FROM product");
 }
 
 //SQL文の実行
@@ -93,8 +89,9 @@ $pnw = new pnwsmarty();
 $smarty = $pnw->getTpl();
 //カートに送るデータ
 if(($wtb != "")&&($search == "")){
-    $dump = array($result[0][0],$result[0][1],$oAmount);
-    array_push($_SESSION["cart"],$dump);
+    array_push($result[0], $oAmount);
+    array_push($_SESSION["cart"],$result[0]);
+    $result = array();
     $smarty->assign("product",$_SESSION["cart"]);
     $smarty->display("home_smtylist/cart.tpl");
 }

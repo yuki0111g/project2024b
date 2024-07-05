@@ -4,7 +4,15 @@
 <?php
 
     session_start();
-    $_SESSION["bought"] = true;
+    print_r($_SESSION["cart"]);
+    require("../../libDB.php");
+    $db = new libDB();
+    $pdo = $db->getPDO();
+    for($i = 0; $i<count($_SESSION['cart']);$i++){
+        $sql = $pdo->prepare("INSERT INTO order_history (productId, userId, num)VALUES({$_SESSION['cart'][$i][3]},{$_SESSION['userid']},{$_SESSION['cart'][$i][4]})");
+        $sql->execute();
+    }
+    $_SESSION["cart"] = array();
     echo "ご注文ありがとうございました。" . "<br>";
     echo "またのご利用をお待ちしております。" . "<br>";
     echo "<br>";

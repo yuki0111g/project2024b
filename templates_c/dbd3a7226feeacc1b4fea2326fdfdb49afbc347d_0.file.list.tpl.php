@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-30 10:14:28
+/* Smarty version 3.1.39, created on 2024-07-05 08:48:53
   from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_668113e4304ae2_44156867',
+  'unifunc' => 'content_6687975547ee99_25729704',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
-      1 => 1719735264,
+      1 => 1720162131,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6687975547ee99_25729704 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -201,7 +201,7 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['orderId'];?>
+                            <input type="hidden" name="wtb" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['productId'];?>
 ">
                     </td>
                     <td>
@@ -214,7 +214,6 @@ $_smarty_tpl->tpl_vars['loop']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>

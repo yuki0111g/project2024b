@@ -21,12 +21,22 @@ $sqlMerc->execute();
 $resultMarc = $sqlMerc->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    print_r("削除ボタンが押されました\n");
-    $delete_index = $_POST["delete_index"];
-    $sql = $pdo->prepare('DELETE FROM wish_list WHERE wishlist_id = '. $delete_index);
-    $sql->execute();
-    header('Location: wishList.php');
-    exit();
+    if(isset($_POST["delete_item"])){
+        print_r("削除ボタンが押されました\n");
+        $delete_index = $_POST["delete_index"];
+        $sql = $pdo->prepare('DELETE FROM wish_list WHERE wishlist_id = '. $delete_index);
+        $sql->execute();
+        header('Location: wishList.php');
+        exit();
+    }
+    if(isset($_POST["add-wishList"])){
+        $productId = $_POST["productId"];
+        var_dump($productId);
+        $sql = $pdo->prepare("INSERT INTO wish_list (userId,productId) VALUES (". $userid .",". $productId .")");
+        $sql->execute();
+        header('Location: wishList.php');
+        exit();
+    }
 }
 
 

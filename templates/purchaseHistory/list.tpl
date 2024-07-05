@@ -40,4 +40,5 @@
 
 </table>
 </body>
+<a href="home_smtylist.php" class="back-link">戻る</a>
 </html>

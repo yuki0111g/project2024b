@@ -45,6 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header('Location: wishList.php');
         exit();
     }
+    if(isset($_POST["goPurchaseHistory"])){
+        header('Location: purchasehistory.php');
+        exit();
+    }
 }
 
 

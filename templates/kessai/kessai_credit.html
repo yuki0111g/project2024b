@@ -1,13 +1,78 @@
-<html>        
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カード番号入力</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-top: 20px;
+      text-align: center; /* Center align form elements */
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; 
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    input[type="submit"] {
+      display: block;
+      width: 200px; /* Adjust button width as needed */
+      margin: 20px auto; /* Center align button */
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
 <body>
 <meta charset="UTF-8">
 <h1>カード番号入力</h1>
 
 <form action="kessai_credit.php" method="GET">
-16桁の番号を半角で入力してください(-なし)<br>
-  カード番号入力：<input type="text" size=0 maxlength="16" name="input1" required><br>
+  16桁の番号を半角で入力してください(-なし)<br>
+  カード番号入力：<input type="text" size=0 maxlength="16" name="input1"><br>
   <hr> 
-  <input type="submit" value="実行">  
+  <input type="submit" value="実行">
+  <input type="submit" name = useUserdata value="ユーザー情報を使う">  
 </form>
 </body>
 </html>

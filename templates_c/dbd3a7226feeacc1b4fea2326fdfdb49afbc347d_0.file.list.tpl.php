@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2024-06-30 10:14:28
+  from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\list.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_668113e4304ae2_44156867',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'dbd3a7226feeacc1b4fea2326fdfdb49afbc347d' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\list.tpl',
+      1 => 1719735264,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_668113e4304ae2_44156867 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -160,25 +183,40 @@
                 </tr>
             </thead>
             <tbody>
-                {foreach $resultMarc as $loop}
+                <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['resultMarc']->value, 'loop');
+$_smarty_tpl->tpl_vars['loop']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['loop']->value) {
+$_smarty_tpl->tpl_vars['loop']->do_else = false;
+?>
                 <tr>
                
-                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
-                    <td>￥{$loop.value}</td>
-                    <td>{$loop.stock}</td>
+                    <td><a href=""><img src=<?php echo ("./productImages/").($_smarty_tpl->tpl_vars['loop']->value['image']);?>
+ /><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+</a></td>
+                    <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
+</td>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="{$loop.orderId}">
+                            <input type="hidden" name="wtb" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['orderId'];?>
+">
                     </td>
                     <td>
                         <button type="submit" class="add-to-cart-button">追加</button>
                         </form>
                     </td>
                 </tr>
-                {/foreach}
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </tbody>
         </table>
+        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>
+<?php }
+}

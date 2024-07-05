@@ -1,17 +1,88 @@
-<html>        
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>決済画面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-top: 20px;
+      text-align: center; /* Center align form elements */
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 20px 0;
+    }
+    input[type="button"] {
+      display: block;
+      width: 200px; /* Adjust button width as needed */
+      margin: 20px auto; /* Center align button */
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
 <body>
-<meta charset="UTF-8">
-<h1>決済画面</h1>
+  <div class="container">
+    <h1>決済画面</h1>
+    <form>
+      <label for="creditCard">
+        <input type="radio" name="method" value="クレジットカード" id="creditCard" checked>
+        クレジットカード
+      </label>
+      <label for="convenienceStore">
+        <input type="radio" name="method" value="コンビニ支払い" id="convenienceStore">
+        コンビニ支払い
+      </label>
+      <hr>
+      <input type="button" value="次へ" onclick="redirectToPayment()">
+    </form>
+  </div>
 
-<form action="kessai.php" method="GET">
-お支払い方法: <br>
-
-  <input type="radio" name="grade" value="クレジットカード" checked/>クレジットカード<br>
-  <input type="radio" name="grade" value="コンビニ支払い"/>コンビニ支払い<br>
-  <hr> 
-
-  
-<input type="submit" value="次へ">  
-</form>
+  <script>
+    function redirectToPayment() {
+      var method = document.querySelector('input[name="method"]:checked').value;
+      if (method === "クレジットカード") {
+        window.location.href = "kessai_credit.html"; 
+      } else if (method === "コンビニ支払い") {
+        window.location.href = "kessai_con.html"; 
+      }
+    }
+  </script>
 </body>
 </html>

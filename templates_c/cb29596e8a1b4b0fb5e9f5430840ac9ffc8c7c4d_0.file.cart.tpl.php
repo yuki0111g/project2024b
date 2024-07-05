@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-06-28 07:37:06
-  from 'C:\xampp\htdocs\project2024b\templates\cart\cart.tpl' */
+/* Smarty version 3.1.39, created on 2024-06-28 09:08:23
+  from 'C:\xampp\htdocs\project2024b\templates\home_smtylist\cart.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_667e4c02761f72_34990893',
+  'unifunc' => 'content_667e6167dbfd25_87788090',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '31b60fa3e74999ececb9fe75dc212938b317bf22' => 
+    'cb29596e8a1b4b0fb5e9f5430840ac9ffc8c7c4d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\cart\\cart.tpl',
-      1 => 1719553021,
+      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home_smtylist\\cart.tpl',
+      1 => 1719558502,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_667e4c02761f72_34990893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_667e6167dbfd25_87788090 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -75,12 +75,53 @@ function content_667e4c02761f72_34990893 (Smarty_Internal_Template $_smarty_tpl)
             text-decoration: none;
             color: #007bff;
         }
+        .order-button {
+        display: inline-block;
+        background-color: #ff69b4; /* ピンク色 */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        width: 100%;
+        }
+        .order-button a {
+            color: white;
+            text-decoration: none;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .order-button {
+                width: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
 <form method="post" action="home_smtylist.php">
     <div class="container">
         <h1>カート</h1>
+        <button class="order-button"><a href="./templates/kessai/kessai.html">注文画面へ進む</a></button>
         <table>
             <tr>
                 <th>名前</th>

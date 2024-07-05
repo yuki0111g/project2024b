@@ -55,6 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once("pnwsmarty.php");
     $pnwSmarty = new pnwsmarty();
     $smarty = $pnwSmarty->getTpl();
-    $smarty->display("login.tpl");
+    $smarty->display("login/login.tpl");
 }
 ?>

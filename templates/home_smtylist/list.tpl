@@ -1,30 +1,8 @@
-<?php
-/* Smarty version 3.1.39, created on 2024-06-28 08:11:16
-  from 'C:\xampp\htdocs\project2024b\templates\home\list.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.39',
-  'unifunc' => 'content_667e5404646430_18475272',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'd5854aac951fb83306b06dfed7368bcf006073c4' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\home\\list.tpl',
-      1 => 1719555074,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./templates/home_smtylist/list.css">
     <title>商品一覧</title>
     <style>
         body {
@@ -84,6 +62,20 @@ function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl)
             cursor: pointer;
         }
 
+        .search-container input[name="accountInfo"] {
+            padding: 10px 30px;
+            font-size: 16px;
+            position:absolute;	
+            top:10%;
+            left:11%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
         .search-container input[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -136,6 +128,11 @@ function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl)
             margin-top: 20px;
             margin-left: 10px;
         }
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -144,6 +141,7 @@ function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl)
         <h1>商品一覧</h1>   
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
+                <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
@@ -161,38 +159,25 @@ function content_667e5404646430_18475272 (Smarty_Internal_Template $_smarty_tpl)
                 </tr>
             </thead>
             <tbody>
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['resultMarc']->value, 'loop');
-$_smarty_tpl->tpl_vars['loop']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['loop']->value) {
-$_smarty_tpl->tpl_vars['loop']->do_else = false;
-?>
+                {foreach $resultMarc as $loop}
                 <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
-</td>
-                    <td>￥<?php echo $_smarty_tpl->tpl_vars['loop']->value['value'];?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['loop']->value['stock'];?>
-</td>
+               
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
+                    <td>￥{$loop.value}</td>
+                    <td>{$loop.stock}</td>
                     <td>
                         <form action="home_smtylist.php" method="POST" style="display: inline;">
                             <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['orderId'];?>
-">
+                            <input type="hidden" name="wtb" value="{$loop.orderId}">
                     </td>
                     <td>
                         <button type="submit" class="add-to-cart-button">追加</button>
                         </form>
                     </td>
                 </tr>
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                {/foreach}
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>
-<?php }
-}

@@ -37,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mail = $_POST['mail'];
     $address = $_POST['address'];
     $number = $_POST['number'];
+    $new_credit = $_POST['new_credit'];
+}
 
     // パスワードが入力された場合はハッシュ化する
     if (!empty($new_password)) {
@@ -48,6 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $updatePasswordStmt->bindParam(':userid', $userid);
         $updatePasswordStmt->execute();
     }
+
+    // クレジットカード番号が入力された場合はハッシュ化する
+    if (!empty($new_credit)) {
+        $hashed_credit = password_hash($new_credit, PASSWORD_BCRYPT);
+
+        // クレジットカード番号を更新するSQL文を準備・実行
+        $updateCreditStmt = $pdo->prepare("UPDATE users SET creditnumber = :creditnumber WHERE userid = :userid");
+        $updateCreditStmt->bindParam(':creditnumber', $hashed_credit);
+        $updateCreditStmt->bindParam(':userid', $userid);
+        $updateCreditStmt->execute();
 
     // メール、住所、電話番号を更新するSQL文を準備・実行
     $updateUserStmt = $pdo->prepare("UPDATE users SET username = :username, mail = :mail, address = :address, number = :number WHERE userid = :userid");
@@ -71,5 +83,5 @@ $smarty->assign("user", $user); // 取得したユーザー情報をSmartyに割
 $smarty->assign("username", $username); // ユーザー名をSmartyに割り当てる
 $smarty->assign("password_placeholder", $password_placeholder); // パスワードのプレースホルダーをSmartyに割り当てる
 $smarty->assign("home_link", "home_smtylist.php");
-$smarty->display("account_management.tpl"); // テンプレートの表示（account_management.tplは実際のテンプレートファイル名に置き換えてください）
+$smarty->display("account_management/account_management.tpl"); // テンプレートの表示（account_management.tplは実際のテンプレートファイル名に置き換えてください）
 ?>

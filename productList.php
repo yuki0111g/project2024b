@@ -2,7 +2,7 @@
 
 //商品一覧表示
 
-require("../libDB.php");
+require("libDB.php");
 $db = new libDB();
 $pdo = $db->getPDO();
 
@@ -14,10 +14,10 @@ $resultMarc = $sqlMerc->fetchAll();
 
 
 //Smartyのテンプレート設定
-require_once("../pnwsmarty.php");
+require_once("pnwsmarty.php");
 $pnwMerc = new pnwsmarty();
 $smartyMerc = $pnwMerc->getTpl();
 $smartyMerc->assign("resultMarc", $resultMarc);
-$smartyMerc->display("list.tpl");
+$smartyMerc->display("productList/list.tpl");
 
 ?>

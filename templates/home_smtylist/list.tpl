@@ -143,18 +143,19 @@
                 <input type="submit" value="検索">
             </form>
         </div>
-
         <div class="product-grid">
             {foreach $resultMarc as $loop}
-            <div class="product-item">
-                <a href=""><img src={"./productImages/"|cat:$loop.image} /></a>
-                <h3>{$loop.productName}</h3>
-                <p>￥{$loop.value}</p>
-                <p>在庫: {$loop.stock}</p>
-                <form action="home_smtylist.php" method="POST">
-                    <input type="number" name="orderAmount" value="1" min="1">
-                    <input type="hidden" name="wtb" value="{$loop.orderId}">
-                    <button type="submit">追加</button>
+            <div class="product-item"
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
+                    <td>￥{$loop.value}</td>
+                    <td>{$loop.stock}</td>
+                    <td>
+                        <form action="home_smtylist.php" method="POST" style="display: inline;">
+                            <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
+                            <input type="hidden" name="wtb" value="{$loop.productId}">
+                    </td>
+                    <td>
+                        <button type="submit" class="add-to-cart-button">追加</button>
                 </form>
             </div>
             {/foreach}

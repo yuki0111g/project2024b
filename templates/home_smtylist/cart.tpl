@@ -110,12 +110,12 @@
             {assign var="total" value=0}
             {$key = 0}
             {foreach $product as $p}
-            {assign var="subtotal" value=$p[1]*$p[2]}
+            {assign var="subtotal" value=$p[1]*$p[4]}
 
             <tr>
                 <td>{$p[0]}</td>
                 <td>&yen;{$p[1]}</td>
-                <td>{$p[2]}</td>
+                <td>{$p[4]}</td>
                 <td>&yen;{$subtotal}</td>
                 <td>
                         <input type="hidden" name="delete_index" value="{$key}">

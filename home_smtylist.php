@@ -6,6 +6,7 @@ $ioAmount = 1;
 $wtb = "";
 $islogin = "ログイン";
 $goCart = 0;
+$accountInfo = 0;
 $remove;
 //postで情報を取得。その後初期値を設定する
 
@@ -25,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST["goCart"])){
         $goCart = 1;
+    }
+    if (isset($_POST["accountInfo"])) {
+        $accountInfo = 1;
     }
     if (isset($_POST["delete_item"]) && isset($_POST["delete_index"])) {
         $delete_index = $_POST["delete_index"];
@@ -57,7 +61,7 @@ $pdo = $db->getPDO();
 
 if ($search != "")//検索
 {
-    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE :search");
+    $sql = $pdo->prepare("SELECT orderId, productName, value ,stock ,image FROM order_history as oh LEFT OUTER JOIN product as p ON oh.productId = p.productId WHERE p.productName LIKE :search");
     $searchParam = $search . '%';
     $sql->bindParam(':search', $searchParam);
 } elseif ($wtb != "")//カート登録
@@ -88,6 +92,10 @@ elseif($goCart){
     $smarty->assign("product",$_SESSION["cart"]);
     $goCart = 0;
     $smarty->display("home_smtylist/cart.tpl");
+}
+elseif($accountInfo) {
+    header("Location: account_management.php");
+    exit();
 }
 //検索に送るデータ
 else {

@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./templates/home_smtylist/list.css">
     <title>商品一覧</title>
     <style>
         body {
@@ -61,6 +62,20 @@
             cursor: pointer;
         }
 
+        .search-container input[name="accountInfo"] {
+            padding: 10px 30px;
+            font-size: 16px;
+            position:absolute;	
+            top:10%;
+            left:11%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
         .search-container input[type="submit"]:hover {
             background-color: #0056b3;
         }
@@ -113,6 +128,11 @@
             margin-top: 20px;
             margin-left: 10px;
         }
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +141,7 @@
         <h1>商品一覧</h1>   
         <div class="search-container">
             <form action="home_smtylist.php" method="POST">
+                <input type="submit" name="accountInfo" value="登録情報">
                 <input type="submit" name="goCart" value = "カートへ進む">
                 <input type="text" name="input1" placeholder="商品を検索">
                 <input type="submit" value="検索">
@@ -140,7 +161,8 @@
             <tbody>
                 {foreach $resultMarc as $loop}
                 <tr>
-                    <td>{$loop.productName}</td>
+               
+                    <td><a href=""><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
                     <td>￥{$loop.value}</td>
                     <td>{$loop.stock}</td>
                     <td>
@@ -156,7 +178,6 @@
                 {/foreach}
             </tbody>
         </table>
-        <a href="account_management.php" class="account-link">登録情報</a>
     </div>
 </body>
 </html>

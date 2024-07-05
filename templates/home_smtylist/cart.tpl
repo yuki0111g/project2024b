@@ -52,12 +52,53 @@
             text-decoration: none;
             color: #007bff;
         }
+        .order-button {
+        display: inline-block;
+        background-color: #ff69b4; /* ピンク色 */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        width: 100%;
+        }
+        .order-button a {
+            color: white;
+            text-decoration: none;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .order-button {
+                width: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
 <form method="post" action="home_smtylist.php">
     <div class="container">
         <h1>カート</h1>
+        <button class="order-button"><a href="./templates/kessai/kessai.html">注文画面へ進む</a></button>
         <table>
             <tr>
                 <th>名前</th>

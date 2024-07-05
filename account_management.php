@@ -20,10 +20,6 @@ $sqlUser->bindParam(':userid', $userid);
 $sqlUser->execute();
 $user = $sqlUser->fetch(PDO::FETCH_ASSOC);
 
-if (!$user) {
-    echo "ユーザーが見つかりません。";
-    exit();
-}
 
 // ユーザー名とパスワードをフォームの初期値として設定する
 $username = $user['username'];

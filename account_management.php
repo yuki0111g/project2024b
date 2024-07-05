@@ -20,11 +20,6 @@ $sqlUser->bindParam(':userid', $userid);
 $sqlUser->execute();
 $user = $sqlUser->fetch(PDO::FETCH_ASSOC);
 
-if (!$user) {
-    echo "ユーザーが見つかりません。";
-    exit();
-}
-
 // ユーザー名とパスワードをフォームの初期値として設定する
 $username = $user['username'];
 $password_placeholder = "********"; // パスワードのプレースホルダー
@@ -38,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'];
     $number = $_POST['number'];
     $new_credit = $_POST['new_credit'];
-}
 
     // パスワードが入力された場合はハッシュ化する
     if (!empty($new_password)) {
@@ -51,15 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $updatePasswordStmt->execute();
     }
 
-    // クレジットカード番号が入力された場合はハッシュ化する
+    // クレジットカード番号が入力された場合はそのまま保存する
     if (!empty($new_credit)) {
-        $hashed_credit = password_hash($new_credit, PASSWORD_BCRYPT);
-
         // クレジットカード番号を更新するSQL文を準備・実行
         $updateCreditStmt = $pdo->prepare("UPDATE users SET creditnumber = :creditnumber WHERE userid = :userid");
-        $updateCreditStmt->bindParam(':creditnumber', $hashed_credit);
+        $updateCreditStmt->bindParam(':creditnumber', $new_credit);
         $updateCreditStmt->bindParam(':userid', $userid);
         $updateCreditStmt->execute();
+    }
 
     // メール、住所、電話番号を更新するSQL文を準備・実行
     $updateUserStmt = $pdo->prepare("UPDATE users SET username = :username, mail = :mail, address = :address, number = :number WHERE userid = :userid");

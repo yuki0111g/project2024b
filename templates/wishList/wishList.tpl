@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お気に入りページ</title>
+    <title>欲しいものリスト</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -125,27 +125,30 @@
 </head>
 <body>
     <header>
-        <h1>お気に入りページ</h1>
+        <h1>欲しいものリスト</h1>
         
     </header>
     <main>
-        <h2>欲しいものリスト</h2>
         
-        <form id="wishlistForm" action="wishList.php" method="post">
+        
         {foreach $resultMarc as $loop}
             <div class="item">
-                <input type="checkbox" id="apple" name="item" value="{$loop.productName}">
-                <label for="apple">
-                    <img src={"./productImages/"|cat:$loop.image} alt={$loop.productName}>
-                    {$loop.productName}
+                <label for="wlitem">
+                    <a href={"./product_detail.php?product_id="|cat:$loop.productId}><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a>
                 </label>
+                <form action="home_smtylist.php" method="POST" style="display: inline;">
+                <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
+                <input type="hidden" name="wtb" value="{$loop.productId}">
+                <button type="submit" class="add-to-cart-button">カートに追加</button>
+                </form>
+                <form id="wishlistForm" action="wishList.php" method="post">
                     <input type="hidden" name="delete_index" value={$loop.wishlist_id}>
-                    <input type="submit" class="cart-btn" name="add_cart" value="カートに追加(まだできない)">
                     <input type="submit" class="delete-btn" name="delete_item" value="削除">
+                </form>
             </div>
         {/foreach}
-            <button type="button" onclick="showSelectedItems()">購入したものをお気に入りに追加</button>
-        </form>
+<a href="home_smtylist.php" class="back-link">戻る</a>
+        
        
     </main>
     <script>

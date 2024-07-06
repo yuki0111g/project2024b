@@ -22,7 +22,6 @@ $resultMarc = $sqlMerc->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST["delete_item"])){
-        print_r("削除ボタンが押されました\n");
         $delete_index = $_POST["delete_index"];
         $sql = $pdo->prepare('DELETE FROM wish_list WHERE wishlist_id = '. $delete_index);
         $sql->execute();

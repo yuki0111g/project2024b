@@ -7,7 +7,6 @@ $db = new libDB();
 $pdo = $db->getPDO();
 session_start();
 $userid = $_SESSION["userid"];//仮のuserid
-echo $userid;
 
 //購入履歴と商品情報を内部結合
 //合計金額算出済み

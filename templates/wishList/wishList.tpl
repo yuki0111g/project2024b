@@ -64,6 +64,7 @@
             height: 60px;
             margin-right: 15px;
             border-radius: 50%;
+            object-fit: cover;
         }
         .item label {
             flex: 1;

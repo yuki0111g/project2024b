@@ -91,13 +91,15 @@
             border-radius: 8px;
             padding: 20px;
             text-align: center;
+            height: auto;
         }
 
         .product-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
             margin-bottom: 10px;
+            border-radius: 8px;
         }
 
         .product-item h3 {
@@ -146,18 +148,17 @@
         </div>
         <div class="product-grid">
             {foreach $resultMarc as $loop}
-            <div class="product-item"
-                    <td><a href={"./product_detail.php?product_id="|cat:$loop.productId}><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a></td>
-                    <td>￥{$loop.value}</td>
-                    <br></br>
-                    <td>
-                        <form action="home_smtylist.php" method="POST" style="display: inline;">
-                            <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
-                            <input type="hidden" name="wtb" value="{$loop.productId}">
-                    </td>
-                    <td>
+            <div class="product-item">
+                <a href={"./product_detail.php?product_id="|cat:$loop.productId}>
+                    <img src={"./productImages/"|cat:$loop.image} alt="{$loop.productName}の画像">
+                    <h3>{$loop.productName}</h3>
+                    <p>￥{$loop.value}</p>
+                    <form action="home_smtylist.php" method="POST" style="display: inline;">
+                        <input type="number" name="orderAmount" value="1" min="1" style="width: 60px; padding: 5px;">
+                        <input type="hidden" name="wtb" value="{$loop.productId}">
                         <button type="submit" class="add-to-cart-button">追加</button>
-                </form>
+                    </form>
+                </a>
             </div>
             {/foreach}
         </div>

@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.39, created on 2024-07-05 10:50:27
+  from 'C:\xampp\htdocs\project2024b\templates\wishList\wishList.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.39',
+  'unifunc' => 'content_6687b3d3d33db1_62728205',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '20a78c07830f3367bafc9aa8208673c53b0956c3' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\project2024b\\templates\\wishList\\wishList.tpl',
+      1 => 1720169424,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6687b3d3d33db1_62728205 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -14,24 +37,38 @@
     <main>
         <h2>欲しいものリスト</h2>
         <form id="wishlistForm" action="wishList.php" method="post">
-        {foreach $resultMarc as $loop}
-        {array_push($loop, $key)}
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['resultMarc']->value, 'loop');
+$_smarty_tpl->tpl_vars['loop']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['loop']->value) {
+$_smarty_tpl->tpl_vars['loop']->do_else = false;
+?>
+        <?php echo array_push($_smarty_tpl->tpl_vars['loop']->value,$_smarty_tpl->tpl_vars['key']->value);?>
+
             <div class="item">
-                <input type="checkbox" id="apple" name="item" value="{$loop.productName}">
+                <input type="checkbox" id="apple" name="item" value="<?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+">
                 <label for="apple">
-                    <img src={"./productImages/"|cat:$loop.image} alt={$loop.productName}>
-                    {$loop.productName}
+                    <img src=<?php echo ("./productImages/").($_smarty_tpl->tpl_vars['loop']->value['image']);?>
+ alt=<?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+>
+                    <?php echo $_smarty_tpl->tpl_vars['loop']->value['productName'];?>
+
                 </label>
-                    <input type="hidden" name="delete_index" value={$loop.whitelist_id}>
+                    <input type="hidden" name="delete_index" value=<?php echo $_smarty_tpl->tpl_vars['loop']->value['whitelist_id'];?>
+>
                     <input type="submit" class="cart-btn" name="add_cart" value="カートに追加(まだできない)">
                     <input type="submit" class="delete-btn" name="delete_item" value="削除">
             </div>
-        {/foreach}
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <button type="button" onclick="showSelectedItems()">購入したものをお気に入りに追加</button>
         </form>
        
     </main>
-    <script>
+    <?php echo '<script'; ?>
+>
         function showSelectedItems() {
             const form = document.getElementById('wishlistForm');
             const selectedItems = [];
@@ -93,6 +130,9 @@
         }
 
         document.getElementById('itemLimit').addEventListener('input', updateItemsList);
-    </script>
+    <?php echo '</script'; ?>
+>
 </body>
 </html>
+<?php }
+}

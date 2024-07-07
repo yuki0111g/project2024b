@@ -21,6 +21,14 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .container img{
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
         h1 {
             font-size: 24px;
             color: #333;
@@ -95,7 +103,7 @@
     </style>
 </head>
 <body>
-<form method="post" action="home_smtylist.php">
+
     <div class="container">
         <h1>カート</h1>
         <button class="order-button"><a href="./templates/kessai/kessai.html">注文画面へ進む</a></button>
@@ -105,28 +113,32 @@
                 <th>価格</th>
                 <th>数量</th>
                 <th>小計</th>
-                <th><input type="submit" class="delete-btn" name="isClear" value="全削除"></th>
+                <th><form method="post" action="home_smtylist.php">
+                <input type="submit" class="delete-btn" name="isClear" value="全削除">
+                </form></th>
             </tr>
             {assign var="total" value=0}
 
             {$key = -1}
             {foreach $product as $p}
+            <form method="post" action="home_smtylist.php">
             {assign var="subtotal" value=$p[1]*$p[4]}
             {$p[] = $key}
             <tr>
-                <td>{$p[0]}</td>
+                <td><a href={"./product_detail.php?product_id="|cat:$p[3]}><img src={"./productImages/"|cat:$p[2]} />{$p[0]}</a></td>
                 <td>&yen;{$p[1]}</td>
                 <td>{$p[4]}</td>
                 <td>&yen;{$subtotal}</td>
                 <td>
                         <input type="hidden" name="delete_index" value={$p[5]}>
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
-                    </form>
+                    
                 </td>
                 {$key=$key + 1}
 
             </tr>
             {assign var="total" value=$total+$subtotal}
+            </form>
             {/foreach}
         </table>
         <div class="total-amount">

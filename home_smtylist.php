@@ -31,12 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $accountInfo = 1;
     }
     if (isset($_POST["delete_item"]) && isset($_POST["delete_index"])) {
+        if(count($_SESSION["cart"]) == 1){
+            $_SESSION["cart"] =array();
+        }
         $delete_index = $_POST["delete_index"];
         echo $delete_index;
-        if (isset($_SESSION["cart"][$delete_index])) {
-            unset($_SESSION["cart"][$delete_index]);
-            $_SESSION["cart"] = array_values($_SESSION["cart"]); 
-        }
+        unset($_SESSION["cart"][$delete_index]);
+        $_SESSION["cart"] = array_values($_SESSION["cart"]);
     }
     if(isset($_POST["isClear"])){
         $_SESSION["cart"] = array();

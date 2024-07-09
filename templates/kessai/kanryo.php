@@ -57,6 +57,7 @@
 <?php
 
     session_start();
+    print_r($_SESSION["cart"]);
     require("../../libDB.php");
     $db = new libDB();
     $pdo = $db->getPDO();

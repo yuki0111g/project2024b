@@ -118,19 +118,18 @@
                 </form></th>
             </tr>
             {assign var="total" value=0}
-
-            {$key = -1}
+            {$key = 0}
             {foreach $product as $p}
             <form method="post" action="home_smtylist.php">
             {assign var="subtotal" value=$p[1]*$p[4]}
-            {$p[] = $key}
+
             <tr>
                 <td><a href={"./product_detail.php?product_id="|cat:$p[3]}><img src={"./productImages/"|cat:$p[2]} />{$p[0]}</a></td>
                 <td>&yen;{$p[1]}</td>
                 <td>{$p[4]}</td>
                 <td>&yen;{$subtotal}</td>
                 <td>
-                        <input type="hidden" name="delete_index" value={$p[5]}>
+                        <input type="hidden" name="delete_index" value="{$key}">
                         <input type="submit" class="delete-btn" name="delete_item" value="削除">
                     
                 </td>

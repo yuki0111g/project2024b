@@ -133,7 +133,6 @@
         
         
         {foreach $resultMarc as $loop}
-        {array_push($loop, $key)}
             <div class="item">
                 <label for="wlitem">
                     <a href={"./product_detail.php?product_id="|cat:$loop.productId}><img src={"./productImages/"|cat:$loop.image} />{$loop.productName}</a>

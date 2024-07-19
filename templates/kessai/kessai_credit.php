@@ -52,6 +52,16 @@
   <div class="payment-details">
     <?php
       $text = $_GET["input1"];
+      if(isset($_GET["useUserdata"])){
+          require("../../libDB.php");
+          $db = new libDB();
+          $pdo = $db->getPDO();
+          session_start();
+          $sql = $pdo->prepare("SELECT creditnumber FROM users WHERE users.userId = {$_SESSION['userid']}");
+          $sql->execute();
+          $result = $sql->fetchAll();
+          $text = $result[0][0];
+    }
       $mozi_count = mb_strlen($text);
       
       if ($mozi_count != 16) {
